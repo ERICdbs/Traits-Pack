@@ -2,23 +2,6 @@
 # Species Traits #
 ##################
 
-trait_rapid_breeders = {
-	cost = 1
-	opposites = { "trait_slow_breeders" }
-	
-	modifier = {
-		pop_growth_req_mult = -0.1
-	}
-}
-
-trait_slow_breeders = {
-	cost = -1
-	opposites = { "trait_rapid_breeders" }
-	
-	modifier = {
-		pop_growth_req_mult = 0.15
-	}
-}
 
 trait_talented = {
 	cost = 2

@@ -1,0 +1,61 @@
+#Some traits use empire range. We use these events to cheat the modifiers into traits.
+
+############################################
+#
+# Svafa's Expanded Species Traits events
+#
+# Thanks to Granhyt's Additional Traits mod for help in setting this up
+# http://steamcommunity.com/sharedfiles/filedetails/?id=681576508
+############################################
+
+namespace =  edbs_traits
+
+#  Add trait bonuses if have trait
+event = {
+  id = edbs_traits.1
+  hide_window = yes
+  is_triggered_only = yes
+  immediate = {
+	every_country = {
+		if = {
+			limit = {
+				AND = {
+					has_trait = "trait_geneticists"
+					NOT = { has_modifier = edbs_modifier_geneticists}
+				}
+			}
+			add_modifier = {
+				modifier = edbs_modifier_geneticists
+				days = -1
+			}
+			give_technology = tech_genome_mapping
+			give_technology = tech_gene_tailoring
+			
+			}
+			
+		}
+		
+	}
+  }
+}
+
+#  Remove trait bonuses if no trait
+event = {
+  id = edbs_traits.2
+  hide_window = yes
+  is_triggered_only = yes
+  immediate = {
+	every_country = {
+		if = {
+			limit = {
+				AND = {
+					has_modifier = edbs_modifier_geneticists
+					NOT = { has_trait = "trait_geneticists" }
+				}
+			}
+			remove_modifier =  edbs_modifier_geneticists
+		}
+		
+	}
+  }
+}

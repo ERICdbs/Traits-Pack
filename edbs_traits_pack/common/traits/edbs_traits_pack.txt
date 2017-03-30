@@ -2,6 +2,26 @@
 # EDB's Traits Pack #
 #####################
 
+trait_r_strategists = {
+	cost = 0
+	opposites = { "trait_k_strategists" }
+	icon = "gfx/interface/icons/traits/trait_r_strategists.dds"
+	modifier = {
+		pop_growth_req_mult = 0.5
+		leader_age = -20
+	}
+}
+
+trait_k_strategists = {
+	cost = 0
+	opposites = { "trait_r_strategists" }
+	icon = "gfx/interface/icons/traits/trait_k_strategists.dds"
+	modifier = {
+		pop_growth_req_mult = -0.5
+		leader_age = 20
+	}
+}
+
 trait_agrarian = {
 	cost = 2
 	modifier = {
@@ -24,7 +44,6 @@ trait_industrious = {
 		tile_resource_minerals_mult = 0.15
 	}
 }
-
 
 
 trait_nonadaptive = {
@@ -54,6 +73,27 @@ trait_extremely_adaptive = {
 	}
 }
 
+trait_ancient = {
+	cost = 5
+	opposites = { "trait_mutators" }
+	icon = "gfx/interface/icons/traits/trait_homozygous.dds"	
+	modifier = {
+		pop_environment_tolerance = -0.20
+		pop_ethic_shift = -0.2
+	}
+}
+
+trait_geneticists = {
+	cost = 5
+	opposites = {  }
+	icon = "gfx/interface/icons/traits/trait_geneticists.dds"	
+	modifier = {
+		trait_points = 2
+		category_biology_research_speed_mult = 0.15
+	}
+	modification = no
+}
+
 trait_homozygous = {
 	cost = 0
 	opposites = { "trait_mutators" }
@@ -74,12 +114,28 @@ trait_mutators = {
 	}
 }
 
+trait_glass-like = {
+	cost = -5
+	opposites = { "trait_strong" "trait_very_strong" "trait_herculean" "trait_weak" "trait_fragile" }
+	icon = "gfx/interface/icons/traits/trait_glass-like.dds"
+	modifier = {
+		army_damage_mult = -0.60
+	}
+}
+
+trait_fragile = {
+	cost = -3
+	opposites = { "trait_strong" "trait_very_strong" "trait_herculean" "trait_glass-like" "trait_weak"}
+	icon = "gfx/interface/icons/traits/trait_fragile.dds"
+	modifier = {
+		army_damage_mult = -0.40
+	}
+}
 
 trait_weak = {
 	cost = -1
-	
-	opposites = { "trait_strong" "trait_very_strong"}
-	
+	opposites = { "trait_strong" "trait_very_strong" "trait_herculean" "trait_glass-like" "trait_fragile" }
+	icon = "gfx/interface/icons/traits/trait_strong.dds"
 	modifier = {
 		army_damage_mult = -0.20
 	}
@@ -87,9 +143,8 @@ trait_weak = {
 
 trait_strong = {
 	cost = 1
+	opposites = { "trait_very_strong" "trait_herculean" "trait_glass-like" "trait_weak" "trait_fragile" }
 	icon = "gfx/interface/icons/traits/trait_strong.dds"
-	opposites = { "trait_weak" "trait_very_strong" "trait_herculean"}
-	
 	modifier = {
 		army_damage_mult = 0.20
 	}
@@ -97,9 +152,8 @@ trait_strong = {
 
 trait_very_strong = {
 	cost = 3
+	opposites = { "trait_strong" "trait_herculean" "trait_glass-like" "trait_weak" "trait_fragile" }
 	icon = "gfx/interface/icons/traits/trait_very_strong.dds"
-	opposites = { "trait_weak" "trait_strong" "trait_herculean"}
-	
 	modifier = {
 		army_damage_mult = 0.40
 	}
@@ -107,9 +161,8 @@ trait_very_strong = {
 
 trait_herculean = {
 	cost = 5
+	opposites = { "trait_strong" "trait_very_strong" "trait_glass-like" "trait_weak" "trait_fragile" }
 	icon = "gfx/interface/icons/traits/trait_herculean.dds"
-	opposites = { "trait_weak" "trait_strong" "trait_very_strong"}
-	
 	modifier = {
 		army_damage_mult = 0.60
 	}
